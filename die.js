@@ -36,7 +36,7 @@ class Die {
 
         var upper_bound = this._faces.length - 1;
         var lower_bound = 0;
-        var randomFaceIndex = Math.floor(Math.random()*(upper_bound - lower_bound)
+        var randomFaceIndex = Math.floor(Math.random()*(upper_bound - lower_bound) + lower_bound);
 
         this._activeFaceIndex = randomaceIndex;
     }
