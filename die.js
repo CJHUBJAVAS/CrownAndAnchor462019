@@ -1,25 +1,52 @@
+var Face = require("./Face");
+
 class Die {
-    constructor(numberSides, activeFace, rollDie){      //when i say newDie I'm executing this
-        this._numberSides = numberSides;
-        this._activeFace = activeFace;
-        this._rollDie = rollDie;
+    constructor(faces) {
+        this.faces = faces;
     }
-    set numberSides(newNumberSides) {
-        this.numberSides = newNumberSides;
+
+    static defaultNumberOfFaces() {
+        return 6;
     }
-    get numberSides() {
-        return this._numberSides;
+
+    set faces(dieFaces)  {
+        if(Array.isArray(dieFaces)) {                      //validate it is an array
+            for(var i = 0;  i < dieFaces.length; i++) {    //use < len  OR  <=Len-1
+                if(!(dieFaces[i] instanceof Face))  {  // validate that every part is what i need
+                    dieFaces[i] = new Face(i,i);
+                }
+            }
+        }
+        else {
+            var dieFaces = [];
+
+            for(var i = 0; i < Die.defaultNumberOfFaces(); i++) {
+                dieFaces.push(new Face(i,i + 1,));
+            }
+        }
+        this._faces = dieFaces;      //assign die faces to the faces value
+        this.rollDie();
     }
-    set activeFace(newActiveFace)  {
-        this.activeFace = newActiveFace;
+
+    get faces() {
+        return this._faces;
     }
-    get activeFace() {
-        return this._activeFace;
+
+    rollDie() {
+
+        var upper_bound = this._faces.length - 1;
+        var lower_bound = 0;
+        var randomFaceIndex = Math.floor(Math.random()*(upper_bound - lower_bound)
+
+        this._activeFaceIndex = randomaceIndex;
     }
-    set rollDie(newrollDie)  {
-        this.rollDie = newRollDie;
+
+    get ActiveFace()   {
+        return this._faces[this._activeFaceIndex];
     }
-    get rollDie()   {
-        return this._rollDie;
+
+    get numberOfFaces() {
+        return this._faces.length;
     }
 }
+module.exports = Die;
