@@ -1,5 +1,7 @@
+let Face = require("./Face");
+
 class Mat {
-    constructor(collectionFaces){
+    constructor(collectionFaces){                       //this is an array of faces
         this._collectionFaces = collectionFaces;
     }
     set collectionFaces(newCollectionFaces) {
