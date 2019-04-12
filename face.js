@@ -5,12 +5,12 @@ class Face {
         this._image = image;
     }
     set symbol(newSymbol) {
-        this.symbol = newSymbol |  "Unknown";   // being sure the property has a value different undefined
-    }
+        this.symbol = newSymbol ||  "Unknown";   // being sure the property has a value different undefined
+    }                                           // if left of || is TRUE then it is assigned 
     get symbol() {
         return this._symbol;
     }
-    set value(newValue)  {     /// want he value to return an iteger all the time
+    set value(newValue)  {     ///  validation - want the value to return an iteger all the time
         if(isNaN(newValue)) {
             this._value = 0;
         }
@@ -24,8 +24,8 @@ class Face {
 
     
     set image(newImage)  {
-        this.image = newImage | "https://media.moddb.com/cache/image";
-    }
+        this.image = newImage || "https://media.moddb.com/cache/images/downloads/1/103/102311/thumb_620x2000/background.png";
+    }                               //if newImage is undefined then we go to the image
     get image()   {
         return this._image;
     }
