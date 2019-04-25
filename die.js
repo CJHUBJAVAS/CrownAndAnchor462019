@@ -20,8 +20,8 @@ class Die {
         else {
             var dieFaces = [];
 
-            for (var i = 0; i < Die.defaultNumberOfFaces(); i++) {
-                dieFaces.push(new Face(i, i + 1));
+            for(var i = 0; i < Die.defaultNumberOfFaces(); i++) {
+                dieFaces.push(new Face(i, i + 1,));
             }
         }
         this._faces = dieFaces;      //assign die faces to the faces value
@@ -38,7 +38,7 @@ class Die {
         var lower_bound = 0;
         var randomFaceIndex = Math.floor(Math.random() * (upper_bound - lower_bound) + lower_bound);
 
-        this._activeFaceIndex = randomaceIndex;
+        this._activeFaceIndex = randomFaceIndex;
     }
 
     get ActiveFace() {

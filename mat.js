@@ -5,9 +5,17 @@ class Mat {
         this._collectionFaces = collectionFaces;
     }
     set collectionFaces(newCollectionFaces) {
-        this.collectionFaces = newCollectionFaces;
+        if(!Array.isArray(collectionFaces)) {
+            throw new Error();
     }
-    get collectionFaces() {
-        return this._collectionFaces;
+    let isValid = collectionFaces.map((f) => (f instanceof Face) ? 0 : 1);
+    let errors = isValid.filter((f) => f == 1);
+
+    if(errors.length > 0){
+        throw new Error();
+    }
+    
     }
 }
+
+module.exports = Mat;

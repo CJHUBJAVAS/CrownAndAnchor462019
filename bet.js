@@ -1,23 +1,31 @@
-let Face = require("./Face");
+var Face = require("./Face");
 
 class Bet {
     constructor(face, betValue){
-        this._face = face;
-        this._betValue = betValue;
+        this.face = face;
+        this.betValue = betValue;
     }
     
-
-
-
-    set betValue(newBetValue)  {
-        if(isNaN(newBetValue)) {
-            this._betValue > 0;
+    set face(face)  {
+        if(!(face instanceof Face))  {
+            throw new Error("Invalid value for property face");
         }
-        else {
-            this._betValue = newBetValue;
+        this_face = face;
+    }
+
+
+    set betValue(BetValue)  {
+        if(isNaN(BetValue) || btValue <+ 0) {
+            throw new Error("Invalid value for property betValue");
         }
-    }
-    get betValue() {
-        return this._betValue;
-    }
+        this._betValue = betValue;
+        }
+
+        get betValue () {
+            return this._betValue;
+        }
+}
+
+module.exports= Bet;
+
     
