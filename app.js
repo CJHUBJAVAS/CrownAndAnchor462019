@@ -1,12 +1,24 @@
-var ImportedFace = require("./Face");   //import code
+var Face = require("./Face");   //import code
+var Bet = require("./Bet");
+var Mat = require("./Mat");
 
-var myFace = new ImportedFace('Crown', 10, 'https://png.pngtree.com/element_origin_min_pic/17/07/30/8700c014e75552dcea051477182bbb83.jpg');
 
-var badFace = new ImportedFace('Bad', 'bad');  //call the constructor to start working with those elements
+try {
+    var myFace = new Face('Crown', 10, 'https://png.pngtree.com/element_origin_min_pic/17/07/30/8700c014e75552dcea051477182bbb83.jpg');
+    var myBet = new Bet(myFace, -5);
+    var faces = {};
 
-var trueValue = true || false ;
+    faces.push(myFace);
 
-var isImportedFace = myFace instanceof ImportedFace ;
-var isFace = myFace instanceof Face ;
+    var myMat = new Mat(faces);
 
-console.log(isFace);
+    myMat.faces
+    console.log(`I am betting ${myBet.betValue}`);
+
+}
+
+catch(err)  {
+    console.log(err.message);
+    console.log(err.stack);
+
+}
